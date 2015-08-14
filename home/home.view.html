@@ -6,6 +6,7 @@
   <tr ng-repeat="user in vm.allUsers">
     <td>{{user.firstName}}</td>
     <td>{{user.lastName}}</td>
+    <td>{{user.accountType}}</td>
     <td><a href="#" ng-click="vm.deleteUser(user.id)">Delete</a></td>
   </tr>
 </table>

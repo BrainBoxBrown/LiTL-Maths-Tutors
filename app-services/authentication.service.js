@@ -12,6 +12,7 @@
         service.Login = Login;
         service.SetCredentials = SetCredentials;
         service.ClearCredentials = ClearCredentials;
+        service.GetAccountType = GetAccountType;
 
         return service;
 
@@ -24,7 +25,7 @@
                 UserService.GetByUsername(username)
                     .then(function (user) {
                         if (user !== null && user.password === password) {
-                            response = { success: true };
+                            response = { success: true, accountType: user.accountType};
                         } else {
                             response = { success: false, message: 'Username or password is incorrect' };
                         }
@@ -38,6 +39,24 @@
             //    .success(function (response) {
             //        callback(response);
             //    });
+
+        }
+         function GetAccountType(username, password, callback) {
+
+            /* Dummy authentication for testing, uses $timeout to simulate api call
+             ----------------------------------------------*/
+            $timeout(function () {
+                var response;
+                UserService.GetByUsername(username)
+                    .then(function (user) {
+                        if (user !== null && user.password === password) {
+                            response = { success: true, accountType: user.accountType};
+                        } else {
+                            response = { success: false, message: 'Username or password is incorrect' };
+                        }
+                        callback(response);
+                    });
+            }, 1000);
 
         }
 

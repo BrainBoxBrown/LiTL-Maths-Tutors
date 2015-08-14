@@ -15,6 +15,7 @@
         service.Create = Create;
         service.Update = Update;
         service.Delete = Delete;
+        // $http.defaults.headers.common['Authorization'] = 'Basic ' + Base64.encode('----myusername----' + ':' + '----mypass---');
 
         return service;
 

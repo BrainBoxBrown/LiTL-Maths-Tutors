@@ -27,6 +27,12 @@
                 controllerAs: 'vm'
             })
 
+            .when('/tutorPortal', {
+                controller: 'tutorPortalController',
+                templateUrl: 'tutorPortal/tutorPortal.view.html',
+                controllerAs: 'vm'
+            })
+
             .otherwise({ redirectTo: '/login' });
     }
 
